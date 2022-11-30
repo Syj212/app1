@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--cssRreset-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            font-family: Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif
+        }
+
+        li {
+            list-style: none
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            -moz-user-focus: none;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%
+        }
+
+        body,
+        html {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+        }
+
+        input {
+            border: none;
+            outline: none
+        }
+
+        i {
+            font-style: normal
+        }
+
+        button {
+            border: none;
+            outline: none
+        }
+
+        .clearfix:after {
+            content: "";
+            height: 0;
+            line-height: 0;
+            visibility: hidden;
+            display: block;
+            clear: both
+        }
+
+        .clearfix {
+            zoom: 1
+        }
+
+        @font-face {
+            font-family: iconfont;
+            src: url(//at.alicdn.com/t/font_1431387_f4npbvnboyw.eot?t=1569251627961);
+            src: url(//at.alicdn.com/t/font_1431387_f4npbvnboyw.eot?t=1569251627961#iefix) format("embedded-opentype"), url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAdsAAsAAAAADRQAAAcdAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDXgqMQIouATYCJAMcCxAABCAFhG0HgQQbKgsjEWZ8NED2zwPbmHrwfeDUoPEC6tMWRdg2Ja+Or8vokPudD8+f+uciQmmlE5POTjo6HZWOcD6zT7wGCCCIeeXf+yFGLOFKqiCUqXgvk2ovoFq4lA/bz/lj8LsIs30Ci76oKa/l9NJkYPX/n2Opl8/T81/bAZ1adtkB3ZvQ3oAiGg+31umaB0hzn4J4Nr00ST8fCAA5vBEJUlhc2QgpOBg1Qd3AfoaekJos4D44Aqle7LIvJ2QRRJDS2fQWgIXy+5PvEE+kAIWIgblQrb6oD3KtYmsSMwoIXdg8rE7PBeB6EMAARALgAJnh6jFiqipS1sjdVuZoBKCGFBTitN5WbfWwhlkjrEmCAOZhZpZAzYrpPzwKERg4xAARg2qUwHaIiQErzwMCWNU8oIDVgwciwBrGAwZYI3jAAWuSFq2KlmysBuANkL8Buo9gEzW8H64tgRQ8jnQNVSBzDPHydHULk8o4F3E7pYM9USplnrRY2f3hU58/Zk7i0mcOeeItrq4d2T8f+/ypx8idOeSRS5sWlvcPHUzHnvpnseKeHZh8DjGFaOeCrphT07g9kjaRRhZvCsFBN4qnzUwHYfO+c/CoMGsVW92W5c0mce/lR84aF2I2O5qXzaMFu7bDspWOJ8nt/M4hz1361F8St5kdh462R8mknnj8qV8aU2lTjGUqDHNiys3CErabEJjUJjjWsKCo0h39c97C9bd8mwX/m94nOI3Sj68NB1bPnvhLRwcrNlI35eOn8KxcRnlncCyandwj6cwfrq5BDCFuMj8gj9hpeoSoUl073KPoaPmcHSIgi1ZBBRbN3J1iphBVYJX28raFBWRLl+vKcEJ5ttlUqoKuTkHlvSFnigYlUU2AqBoXpc9d+8q5XufTl+HTg8PmhyUXv35r7nVyTS3fio+ct16fPbmCx/HkRZ2PT545thWd5Gvvz33oY9pzC9fnZZv+ki/dA9sORVf/uq3/ufeN9+Y8mGAqG5KvrCJKkYYr5ziWZjWringCkam91bR6CPvLopUWfNZsXMlk8TXxqnY47nN7qPvOgCk5pbKOSkv49MAOZl0H51NPvE/4FMvMXhmhRzo8mX54VPBkyNa7X/1m2SivqDQNdFkcViQ3/3mKusiiAR0GTetOrFN1V3QMtyTlpveF5sKUOF2yo7N9XEetaoRT3HcDDEM6feiqlQ8Vz5lMupJsezuJT3hwCRc1srp87nZjC7fXitOd53na5sUFBzmiwyMhI3M3uVMXfOAS6UmjT7TB5mLb8PvY+fDFH5cET706u9r0ovT/2eWq8tpPAdecVyv+WZY7PUwhv7sB82nCoOtTjeKD3GYbCNc+YPvyz5aRV7uCoFzbUjmqsCRrBFz2e5acv2Csrx300jJni37QIJ2D7sJ5OF/b67H2c3rCoEEFxWHuLMHdPYAQLZbiwqJVHq/+qxyNV9MyoCWBBTmWTk8srakPfRXZL9XJpTY0pEvA2aLSqvKb3t3jpjoKudNKIv50otrF69yGmqi22XlFZ0NrQ1qdmuqmdkW+Cq2vyc1P3GVX43ocibR5V3Zx1unMspLyshp9xtmcvKJdxkTNIt7kGiGoPGGMcMWLUS/SJHzqUGpcgdIUtkQdKymUFhaWxfZvctiyxLGXY/tzx+ffzZr9zPFZu0MvB8QvttGZOyyzSCvdvZu2invv55WdDR9ifzZUdNZuI0pGBA0E/ChofYTobfPp6dN0vqT/YWVVV8PuL4Ffdhuqux5SSvqTpUePyhoiXT8YKmMcJO5NW3fvbqWzyA4LnSlJbs6uf3TgqAB3NbRFtRmuu2iFHyFAI5CfhKsxnFSQclQAqQxQ26lz+f18c4FzgHrW+vWvl5sdXH7aNUd1ZKD7wCMqZgm1ZDsYBLyfBJMBAEJfdpP+Jvwu7GO/sgnCT8IsTtk8AGB96G+A8DMrZFmA8A3bwPbd9fDis+1Od03mb1LF9hx/vpdGyKL42L5ZKSgQWrqnDnAm/ARwepMzKslXA76RCb9zKvxklsXtggT9IQXWdxPkbAAQaMAeb9LTOYWW/hnonHSgkMALGKQIRHLsnkgQUUgEMakckItQcrCCg+H6yGQAwk0nQGjtBUrtLDBat5Ec+xpEnNlATFsf5HTtj6kQXDb7YgwEYwhvkEVUG84uM6XewkTLgI1ymewht1kcHqJjrfk/rJHT2KE9J48iBgxTBb/kYliWBA1TjpGcUpHm8y5G77bjKaKqM1OAoYCI7DHQy42/nwipmYXFzPb2FpRQpQD7jH3zexBrZUsHcaLFhkD+aepQY8vSOsJZ4tFI6jKATzFSqbrikwuVbIaAoe5r5VBEnLTESDU+xdBp+rCaU/66ajhrMPgmMttIooQRTkRETCQEv9zhSSOzoL5omd1IRbNUafdmXXYdKmkVkGiYiW3Pr7zMLjrtuehRsO1tiep+6AAAAA==") format("woff2"), url(//at.alicdn.com/t/font_1431387_f4npbvnboyw.woff?t=1569251627961) format("woff"), url(//at.alicdn.com/t/font_1431387_f4npbvnboyw.ttf?t=1569251627961) format("truetype"), url(//at.alicdn.com/t/font_1431387_f4npbvnboyw.svg?t=1569251627961#iconfont) format("svg")
+        }
+
+        .iconfont {
+            font-family: iconfont !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        .icon-15tianwuliyoutuihuo:before {
+            content: "\E606"
+        }
+
+        .icon-7tianwuliyoutuihuo:before {
+            content: "\E60E"
+        }
+
+        .icon-buoumaotubiao46:before {
+            content: "\E629"
+        }
+
+        .icon-liwu:before {
+            content: "\E62B"
+        }
+
+        .icon-icon-test:before {
+            content: "\E61B"
+        }
+
+        .icon-icon-test1:before {
+            content: "\E635"
+        }
+    </style>
+
+    <!--header-->
+    <style>
+        #app {
+            font-family: Avenir, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            color: #2c3e50
+        }
+
+        .index-page {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            background-color: #f5f5f5
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 40px;
+            background-color: #333
+        }
+
+        .top-bar .bar-container {
+            width: 1226px;
+            font-size: 12px;
+            font-weight: 500;
+            margin: 0 auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between
+        }
+
+        .top-bar .bar-container .nav-container {
+            display: inline-block
+        }
+
+        .top-bar .bar-container .nav-container .nav-item .item-style a {
+            display: inline-block;
+            font-size: 12px;
+            color: #b0b0b0;
+            line-height: 40px;
+            text-decoration: none
+        }
+
+        .top-bar .bar-container .nav-container .nav-item .item-style a:hover {
+            color: #fff
+        }
+
+        .nav-item {
+            height: 40px;
+            line-height: 40px;
+            position: relative
+        }
+
+        .nav-item,
+        .nav-item .item-style {
+            display: inline-block
+        }
+
+        .nav-item .item-style .triangle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            margin-left: -8px;
+            border-width: 0 8px 8px;
+            border-style: solid;
+            border-color: transparent transparent #fff
+        }
+
+        .nav-item .item-style .app-qrcode-container {
+            position: relative;
+            display: inline-block
+        }
+
+        .nav-item .item-style .app-qrcode-container .app-qrcode {
+            position: absolute;
+            display: inline-block;
+            top: 16px;
+            left: 50%;
+            width: 124px;
+            background: #fff;
+            margin-left: -75px;
+            -webkit-box-shadow: 0 3px 3px #aaa;
+            box-shadow: 0 3px 3px #aaa;
+            overflow: hidden;
+            z-index: 16;
+            cursor: pointer
+        }
+
+        .nav-item .item-style .app-qrcode-container .app-qrcode img {
+            display: block;
+            margin: 18px auto 12px;
+            width: 90px;
+            height: 90px
+        }
+
+        .nav-item .item-style .app-qrcode-container .app-qrcode span {
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            line-height: 1;
+            margin-bottom: 12px
+        }
+
+        .nav-span {
+            color: #424242;
+            font-family: sans-serif;
+            line-height: 40px;
+            margin: 0 5px;
+            line-height: 18px;
+        }
+
+        .nav-login {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .nav-login .nav-login-item a {
+            font-size: 12px;
+            color: #b0b0b0;
+            line-height: 40px;
+            text-decoration: none
+        }
+
+        .nav-login .nav-login-item a:hover {
+            color: #fff
+        }
+
+        .nav-login .nav-cart {
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: 25px;
+            cursor: pointer;
+            position: relative
+        }
+
+        .nav-login .nav-cart .nav-cart-container {
+            line-height: 40px;
+            height: 40px;
+            background: #333;
+        }
+
+        .nav-login .nav-cart .nav-cart-container i {
+            font-size: 20px;
+            color: #b0b0b0
+        }
+
+        .nav-login .nav-cart .nav-cart-container a {
+            color: #b0b0b0;
+            text-decoration: none;
+            line-height: 40px;
+            margin-left: 5px
+        }
+
+        .nav-login .nav-cart .nav-cart-container span {
+            color: #b0b0b0
+        }
+
+        .nav-login .nav-cart .nav-cart-container:hover {
+            background: #fff
+        }
+
+        .nav-login .nav-cart .nav-cart-container:hover .icon-cart,
+        .nav-login .nav-cart .nav-cart-container:hover a,
+        .nav-login .nav-cart .nav-cart-container:hover span {
+            color: #ff6700,
+        }
+
+        .nav-login .nav-cart .nav-cart-container a,
+        .nav-login .nav-cart .nav-cart-container span {
+            color: #ff6700
+        }
+
+        .nav-login .nav-cart .nav-cart-list {
+            position: absolute;
+            right: 0;
+            top: 40px;
+            width: 316px;
+            background: #fff;
+            -webkit-box-shadow: 0 0 5px -1px #ccc;
+            box-shadow: 0 0 5px -1px #ccc;
+            z-index: 10;
+            overflow: hidden
+        }
+
+        .nav-login .nav-cart .nav-cart-list .cart-list-word {
+            height: 96px;
+            line-height: 96px;
+            text-align: center;
+            color: #000
+        }
+    </style>
+
+    <!--top-header-->
+    <style>
+        .top-header {
+            width: 100%;
+            height: 100px
+        }
+
+        .top-header .top-container {
+            width: 1226px;
+            height: 100%;
+            margin: 0 auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between
+        }
+
+        .top-header .top-container .logo {
+            display: block;
+            width: 55px;
+            height: 55px;
+        }
+
+        .top-header .top-container .header-navs-container {
+            width: 820px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 100%
+        }
+
+        .top-header .top-container .header-navs-container .divider {
+            width: 142px;
+            height: 100px
+        }
+
+        .top-header .top-container .header-navs-container .navs {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            line-height: 50px
+        }
+
+        .top-header .top-container .header-navs-container .navs .navs-item>a {
+            cursor: pointer;
+            padding: 26px 10px 38px;
+            display: inline-block;
+            text-decoration: none
+        }
+
+        .top-header .top-container .header-navs-container .navs .navs-item>a:hover {
+            color: #ff6700;
+        }
+
+        .top-header .top-container .header-search-container {
+            height: 50px;
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .top-header .top-container .header-search-container .search-input {
+            width: 240px;
+            height: 100%;
+            outline: none;
+            font-size: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .top-header .top-container .header-search-container .search-btn {
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            border-radius: 5%;
+        }
+
+        .top-header .top-container .header-search-container .search-btn i {
+            font-size: 19px;
+            width: 48px;
+            background: #fff;
+            color: #616161;
+            line-height: 48px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .top-header .top-container .header-search-container .search-btn i:hover {
+            background: #ff6700;
+            color: #fff;
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease
+        }
+
+        .top-header .top-container .header-search-container .top-header .top-container .header-search-container .search-btn:hover {
+            border: 1px solid #ff6700;
+            -webkit-transition: all .2s ease;
+            transition: all .2s ease
+        }
+
+        .top-header .top-container .header-search-container .search-hots {
+            position: absolute;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            top: 14px;
+            right: 55px;
+            z-index: 2
+        }
+
+        .top-header .top-container .header-search-container .search-hots .hots-item {
+            width: auto;
+            height: 18px;
+            line-height: 18px;
+            padding: 0 5px;
+            font-size: 12px;
+            background: #eee;
+            color: #757575;
+            margin-right: 5px;
+            cursor: pointer
+        }
+
+        .top-header .top-container .header-search-container .search-hots .hots-item:hover {
+            color: #fff;
+            background: #ff6300
+        }
+
+        .top-header .top-container .header-search-container .search-list {
+            position: absolute;
+            width: 240px;
+            top: 50px;
+            height: auto;
+            border: 1px solid #ff6700;
+            border-top: 0;
+            text-align: left;
+            z-index: 16
+        }
+
+        .top-header .top-container .header-search-container .search-list .list-item {
+            cursor: pointer;
+            padding: 6px 15px;
+            font-size: 12px;
+            background: #fff;
+            color: #424242
+        }
+
+        .top-header .top-container .header-search-container .search-list .list-item:hover {
+            background: #fafafa
+        }
+
+        .top-header .menus-list {
+            position: absolute;
+            left: 0;
+            top: 140px;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, .18);
+            box-shadow: 0 3px 4px rgba(0, 0, 0, .18);
+            overflow: hidden;
+            z-index: 15
+        }
+
+        .top-header .menus-list .menus {
+            padding: 30px 0 30px 110px;
+            min-width: 1500px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .top-header .menus-list .menus .menus-item a {
+            display: block;
+            padding: 0 20px;
+            border-right: 1px solid #ccc
+        }
+
+        .top-header .menus-list .menus .menus-item:last-child a {
+            border: 0
+        }
+
+        .top-header .menus-list .menus .menus-item .item-img {
+            width: 100%;
+            width: 160px;
+            height: 110px
+        }
+
+        .top-header .menus-list .menus .menus-item .item-value {
+            width: 100%;
+            height: 16px;
+            margin-top: 16px;
+            font-size: 12px;
+            text-align: center
+        }
+
+        .top-header .menus-list .menus .menus-item {
+            width: 100%;
+            height: 16px;
+            margin: 4px 0 4px;
+            font-size: 12px;
+            text-align: center
+        }
+
+        .top-header .menus-list .menus .menus-item .item-price {
+            width: 100%;
+            height: 14px;
+            line-height: 14px;
+            margin: 5px 0 5px;
+            font-size: 10px;
+            text-align: center;
+            color: #ff6700
+        }
+
+        .divider {
+            width: 1px;
+            height: 21px;
+            margin-right: 25px;
+            background: #e0e0e0
+        }
+
+        .menu-list {
+            padding: 20px 0;
+            height: 460px
+        }
+
+        .menu-list .list-item {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            padding-left: 30px
+        }
+
+        .menu-list .list-item:hover {
+            background-color: #ff6700
+        }
+
+        .menu-list .list-item a {
+            position: relative;
+            display: inline-block;
+            width: 170px;
+            height: 42px;
+            line-height: 42px;
+            color: #fff;
+            text-align: left;
+            background-color: transparent
+        }
+
+        .menu-list .list-item i {
+            font-size: 22px;
+            color: #e0e0e0;
+            line-height: 42px
+        }
+    </style>
+
+    <!--menu-banner-->
+    <style>
+        .menu-banner {
+            position: relative;
+            width: 1226px;
+            height: auto;
+            margin: 0 auto
+        }
+
+        .menu-banner .menu-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 235px;
+            height: auto;
+            background: rgba(0, 0, 0, .3);
+            z-index: 10
+        }
+
+        .menu-info {
+            position: absolute;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            left: 235px;
+            top: 0;
+            z-index: 11;
+            border: 1px solid #e0e0e0;
+            -webkit-box-shadow: 3px 8px 16px rgba(0, 0, 0, .18);
+            box-shadow: 3px 8px 16px rgba(0, 0, 0, .18)
+        }
+
+        .menu-info .menu-info-list {
+            width: 248px;
+            height: 458px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            background: #fff
+        }
+
+        .menu-info .menu-info-list a {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            padding: 18px 20px;
+            line-height: 40px;
+            color: #333
+        }
+
+        .menu-info .menu-info-list a img {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+            vertical-align: middle
+        }
+
+        .menu-info .menu-info-list a span {
+            width: 172px;
+            line-height: 40px;
+            font-size: 14px;
+            text-align: start;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden
+        }
+
+        .menu-info .menu-info-list a:hover span {
+            color: #ff6700
+        }
+
+        .banner {
+            position: relative
+        }
+
+        .banner .banner-prev {
+            position: absolute;
+            top: 50%;
+            width: 41px;
+            height: 69px;
+            margin-top: -35px;
+            z-index: 5;
+            cursor: pointer;
+            outline: none;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAABFCAMAAAD3hm1pAAABI1BMVEUAAADMzMz////MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMwAAADMzMwAAADMzMzMzMzMzMzMzMzMzMwAAAAAAAAAAADMzMwAAAAGBgbMzMwMDAwREREXFxfMzMwcHBwiIiLMzMwnJyfMzMwsLCwxMTE1NTU6OjrMzMw/Pz/MzMxERERISEjMzMxNTU1RUVFVVVXMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMyRkZGVlZXMzMzMzMzMzMzMzMzMzMzMzMzMzMzExMTGxsbKysrNzc3Ozs7T09PV1dXX19fb29vd3d3e3t7h4eHi4uLl5eXo6Ojp6ens7Ozt7e3v7+/w8PDy8vL09PT29vb39/f////eZohyAAAAYHRSTlMAAAACBQcKDA4RExYYGh0fICIkJCYpUlRlcnR/gIGCg4SGhoeJiYqLjI2PkJCSkpOVlZaYmZqcnqGjpqqtr7KztLS2ubu+wMzP0dTV19rb3eDh4+Tm5+rs7e/w8vP19vjBP2KvAAAC3UlEQVRoge3a+VPiMBQH8GZpRcT7FlFwURTvE8RbRKPrSb1F9P3/f8UWZ3ak7Xtp4rK709n0x05m8pmkSd43UyMp9wx3G93Dkm0N41uzH0Oy62TCSMg2/ZfMpEJLzdRMzdRMzdRMzdRMzdRMzfxkMv9DU0SNqc6zlf0A5n4lq8iM5QeFzMF8TJE5eQ92ANOG+0klZusWLwiZBb7VqsTM3MGDd6y8LbMPcJdRYEaLfDsmZMa2eTGqwMzcwuOMr3Pvi5lHuEWdKDO6yXfaAr7Nth2+GZVmTtjwlPN37nuTewJ7QpLZUuC78cAlFN/lhRZJZroCz34lttJzz1BJSzGtPN+Ls0Ami+/xvCXFTN/Ayyw2Rsi72Re48Tv9TGuDH7YzCSZrP+QblgTTUVbnEBG+b85VEaeP6ShLHd6ecSbrKDU4SWb6mlAS27vjvPY6vUxr5VMZvL07zhUrgJm6guoC6qFOoYUqXKWETHORlzr980gxWWeJL5pCZuoSXpdwDnlYLr3CpdvpZprz/KgLWRUkk3Ud8XlTwExdQG2Z0NBn+nINLlxOF9Oc5uUepsRkPWU+bZLMsXOorVIYQemxWoPzMYIZmeLlPqbIZH1lPhUhmGM/4G2NtIgqpLU3l7OBGfnOj/uZMpP1H384MeYpvK/TFGEht/4OpyhzlJ8MsC8w2cAJH8WZZ8LBFDKd4TxDmePewZRlOsM5Tky68NMUTnqNnHTvpyk76WVy0n9rCTUu9eYsIZNa6SHZkMKyvYflsAxL6UGXmzgTLTixQu5XuRnIdBWcNPOjeJcti/HyHSmLneJdrix2l+8CZj0KyYcMLAwhIcOJQrIhozEMiZj1YCkb2dBoiUU2J1jKRTZXtBQy6zG9+QG42OwAHJbrhLBczjhjZR8EMA9s5auuwpCQOVRQverCOpdv+fcuDv8rZtMezdRMzdRMzdRMzdRMzfwyc8QYCQEz0Wv0yv61+weYPwGJ++sQbidxVwAAAABJRU5ErkJggg0K) no-repeat -84px 50%;
+            left: 234px;
+            right: auto
+        }
+
+        .banner .banner-prev:hover {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAABFCAMAAAD3hm1pAAABI1BMVEUAAADMzMz////MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMwAAADMzMwAAADMzMzMzMzMzMzMzMzMzMwAAAAAAAAAAADMzMwAAAAGBgbMzMwMDAwREREXFxfMzMwcHBwiIiLMzMwnJyfMzMwsLCwxMTE1NTU6OjrMzMw/Pz/MzMxERERISEjMzMxNTU1RUVFVVVXMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMyRkZGVlZXMzMzMzMzMzMzMzMzMzMzMzMzMzMzExMTGxsbKysrNzc3Ozs7T09PV1dXX19fb29vd3d3e3t7h4eHi4uLl5eXo6Ojp6ens7Ozt7e3v7+/w8PDy8vL09PT29vb39/f////eZohyAAAAYHRSTlMAAAACBQcKDA4RExYYGh0fICIkJCYpUlRlcnR/gIGCg4SGhoeJiYqLjI2PkJCSkpOVlZaYmZqcnqGjpqqtr7KztLS2ubu+wMzP0dTV19rb3eDh4+Tm5+rs7e/w8vP19vjBP2KvAAAC3UlEQVRoge3a+VPiMBQH8GZpRcT7FlFwURTvE8RbRKPrSb1F9P3/f8UWZ3ak7Xtp4rK709n0x05m8pmkSd43UyMp9wx3G93Dkm0N41uzH0Oy62TCSMg2/ZfMpEJLzdRMzdRMzdRMzdRMzdRMzfxkMv9DU0SNqc6zlf0A5n4lq8iM5QeFzMF8TJE5eQ92ANOG+0klZusWLwiZBb7VqsTM3MGDd6y8LbMPcJdRYEaLfDsmZMa2eTGqwMzcwuOMr3Pvi5lHuEWdKDO6yXfaAr7Nth2+GZVmTtjwlPN37nuTewJ7QpLZUuC78cAlFN/lhRZJZroCz34lttJzz1BJSzGtPN+Ls0Ami+/xvCXFTN/Ayyw2Rsi72Re48Tv9TGuDH7YzCSZrP+QblgTTUVbnEBG+b85VEaeP6ShLHd6ecSbrKDU4SWb6mlAS27vjvPY6vUxr5VMZvL07zhUrgJm6guoC6qFOoYUqXKWETHORlzr980gxWWeJL5pCZuoSXpdwDnlYLr3CpdvpZprz/KgLWRUkk3Ud8XlTwExdQG2Z0NBn+nINLlxOF9Oc5uUepsRkPWU+bZLMsXOorVIYQemxWoPzMYIZmeLlPqbIZH1lPhUhmGM/4G2NtIgqpLU3l7OBGfnOj/uZMpP1H384MeYpvK/TFGEht/4OpyhzlJ8MsC8w2cAJH8WZZ8LBFDKd4TxDmePewZRlOsM5Tky68NMUTnqNnHTvpyk76WVy0n9rCTUu9eYsIZNa6SHZkMKyvYflsAxL6UGXmzgTLTixQu5XuRnIdBWcNPOjeJcti/HyHSmLneJdrix2l+8CZj0KyYcMLAwhIcOJQrIhozEMiZj1YCkb2dBoiUU2J1jKRTZXtBQy6zG9+QG42OwAHJbrhLBczjhjZR8EMA9s5auuwpCQOVRQverCOpdv+fcuDv8rZtMezdRMzdRMzdRMzdRMzfwyc8QYCQEz0Wv0yv61+weYPwGJ++sQbidxVwAAAABJRU5ErkJggg0K) no-repeat 0 50%
+        }
+
+        .banner .banner-next {
+            position: absolute;
+            top: 50%;
+            width: 41px;
+            height: 69px;
+            margin-top: -35px;
+            z-index: 5;
+            cursor: pointer;
+            outline: none;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAABFCAMAAAD3hm1pAAABI1BMVEUAAADMzMz////MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMwAAADMzMwAAADMzMzMzMzMzMzMzMzMzMwAAAAAAAAAAADMzMwAAAAGBgbMzMwMDAwREREXFxfMzMwcHBwiIiLMzMwnJyfMzMwsLCwxMTE1NTU6OjrMzMw/Pz/MzMxERERISEjMzMxNTU1RUVFVVVXMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMyRkZGVlZXMzMzMzMzMzMzMzMzMzMzMzMzMzMzExMTGxsbKysrNzc3Ozs7T09PV1dXX19fb29vd3d3e3t7h4eHi4uLl5eXo6Ojp6ens7Ozt7e3v7+/w8PDy8vL09PT29vb39/f////eZohyAAAAYHRSTlMAAAACBQcKDA4RExYYGh0fICIkJCYpUlRlcnR/gIGCg4SGhoeJiYqLjI2PkJCSkpOVlZaYmZqcnqGjpqqtr7KztLS2ubu+wMzP0dTV19rb3eDh4+Tm5+rs7e/w8vP19vjBP2KvAAAC3UlEQVRoge3a+VPiMBQH8GZpRcT7FlFwURTvE8RbRKPrSb1F9P3/f8UWZ3ak7Xtp4rK709n0x05m8pmkSd43UyMp9wx3G93Dkm0N41uzH0Oy62TCSMg2/ZfMpEJLzdRMzdRMzdRMzdRMzdRMzfxkMv9DU0SNqc6zlf0A5n4lq8iM5QeFzMF8TJE5eQ92ANOG+0klZusWLwiZBb7VqsTM3MGDd6y8LbMPcJdRYEaLfDsmZMa2eTGqwMzcwuOMr3Pvi5lHuEWdKDO6yXfaAr7Nth2+GZVmTtjwlPN37nuTewJ7QpLZUuC78cAlFN/lhRZJZroCz34lttJzz1BJSzGtPN+Ls0Ami+/xvCXFTN/Ayyw2Rsi72Re48Tv9TGuDH7YzCSZrP+QblgTTUVbnEBG+b85VEaeP6ShLHd6ecSbrKDU4SWb6mlAS27vjvPY6vUxr5VMZvL07zhUrgJm6guoC6qFOoYUqXKWETHORlzr980gxWWeJL5pCZuoSXpdwDnlYLr3CpdvpZprz/KgLWRUkk3Ud8XlTwExdQG2Z0NBn+nINLlxOF9Oc5uUepsRkPWU+bZLMsXOorVIYQemxWoPzMYIZmeLlPqbIZH1lPhUhmGM/4G2NtIgqpLU3l7OBGfnOj/uZMpP1H384MeYpvK/TFGEht/4OpyhzlJ8MsC8w2cAJH8WZZ8LBFDKd4TxDmePewZRlOsM5Tky68NMUTnqNnHTvpyk76WVy0n9rCTUu9eYsIZNa6SHZkMKyvYflsAxL6UGXmzgTLTixQu5XuRnIdBWcNPOjeJcti/HyHSmLneJdrix2l+8CZj0KyYcMLAwhIcOJQrIhozEMiZj1YCkb2dBoiUU2J1jKRTZXtBQy6zG9+QG42OwAHJbrhLBczjhjZR8EMA9s5auuwpCQOVRQverCOpdv+fcuDv8rZtMezdRMzdRMzdRMzdRMzfwyc8QYCQEz0Wv0yv61+weYPwGJ++sQbidxVwAAAABJRU5ErkJggg0K) no-repeat -125px 50%;
+            right: 0;
+            left: auto
+        }
+
+        .banner .banner-next:hover {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAABFCAMAAAD3hm1pAAABI1BMVEUAAADMzMz////MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMwAAADMzMwAAADMzMzMzMzMzMzMzMzMzMwAAAAAAAAAAADMzMwAAAAGBgbMzMwMDAwREREXFxfMzMwcHBwiIiLMzMwnJyfMzMwsLCwxMTE1NTU6OjrMzMw/Pz/MzMxERERISEjMzMxNTU1RUVFVVVXMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMyRkZGVlZXMzMzMzMzMzMzMzMzMzMzMzMzMzMzExMTGxsbKysrNzc3Ozs7T09PV1dXX19fb29vd3d3e3t7h4eHi4uLl5eXo6Ojp6ens7Ozt7e3v7+/w8PDy8vL09PT29vb39/f////eZohyAAAAYHRSTlMAAAACBQcKDA4RExYYGh0fICIkJCYpUlRlcnR/gIGCg4SGhoeJiYqLjI2PkJCSkpOVlZaYmZqcnqGjpqqtr7KztLS2ubu+wMzP0dTV19rb3eDh4+Tm5+rs7e/w8vP19vjBP2KvAAAC3UlEQVRoge3a+VPiMBQH8GZpRcT7FlFwURTvE8RbRKPrSb1F9P3/f8UWZ3ak7Xtp4rK709n0x05m8pmkSd43UyMp9wx3G93Dkm0N41uzH0Oy62TCSMg2/ZfMpEJLzdRMzdRMzdRMzdRMzdRMzfxkMv9DU0SNqc6zlf0A5n4lq8iM5QeFzMF8TJE5eQ92ANOG+0klZusWLwiZBb7VqsTM3MGDd6y8LbMPcJdRYEaLfDsmZMa2eTGqwMzcwuOMr3Pvi5lHuEWdKDO6yXfaAr7Nth2+GZVmTtjwlPN37nuTewJ7QpLZUuC78cAlFN/lhRZJZroCz34lttJzz1BJSzGtPN+Ls0Ami+/xvCXFTN/Ayyw2Rsi72Re48Tv9TGuDH7YzCSZrP+QblgTTUVbnEBG+b85VEaeP6ShLHd6ecSbrKDU4SWb6mlAS27vjvPY6vUxr5VMZvL07zhUrgJm6guoC6qFOoYUqXKWETHORlzr980gxWWeJL5pCZuoSXpdwDnlYLr3CpdvpZprz/KgLWRUkk3Ud8XlTwExdQG2Z0NBn+nINLlxOF9Oc5uUepsRkPWU+bZLMsXOorVIYQemxWoPzMYIZmeLlPqbIZH1lPhUhmGM/4G2NtIgqpLU3l7OBGfnOj/uZMpP1H384MeYpvK/TFGEht/4OpyhzlJ8MsC8w2cAJH8WZZ8LBFDKd4TxDmePewZRlOsM5Tky68NMUTnqNnHTvpyk76WVy0n9rCTUu9eYsIZNa6SHZkMKyvYflsAxL6UGXmzgTLTixQu5XuRnIdBWcNPOjeJcti/HyHSmLneJdrix2l+8CZj0KyYcMLAwhIcOJQrIhozEMiZj1YCkb2dBoiUU2J1jKRTZXtBQy6zG9+QG42OwAHJbrhLBczjhjZR8EMA9s5auuwpCQOVRQverCOpdv+fcuDv8rZtMezdRMzdRMzdRMzdRMzfwyc8QYCQEz0Wv0yv61+weYPwGJ++sQbidxVwAAAABJRU5ErkJggg0K) no-repeat -43px 50%
+        }
+
+        .banner .banner-points {
+            position: absolute;
+            display: inline-block;
+            width: 400px;
+            left: auto;
+            right: 30px;
+            bottom: 20px;
+            text-align: right;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            z-index: 10
+        }
+
+        .banner .banner-points .banner-point {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: 2px solid #fff;
+            border-color: hsla(0, 0%, 100%, .3);
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, .4);
+            opacity: 1;
+            margin: 0 4px;
+            cursor: pointer
+        }
+
+        .banner .banner-points .banner .banner-points .banner-point:hover {
+            background: hsla(0, 0%, 100%, .4);
+            border-color: rgba(0, 0, 0, .4)
+        }
+
+        .banner .banner-container {
+            width: 100%;
+            height: 460px;
+            overflow: hidden
+        }
+
+        .banner .banner-container .image-container {
+            width: 100%;
+            height: auto
+        }
+
+        .banner .banner-container .image-container a {
+            display: block
+        }
+
+        .banner .banner-container .image-container a img {
+            width: 100%
+        }
+
+        .banner-trans-enter-active {
+            -webkit-transition: all .1s ease-in-out;
+            transition: all .1s ease-in-out;
+            opacity: 1
+        }
+
+        .banner-trans-enter,
+        .banner-trans-leave-active,
+        .banner-trans-leave-to {
+            opacity: 0
+        }
+
+        .banner-trans-enter-to,
+        .banner-trans-leave {
+            opacity: 1
+        }
+    </style>
+
+    <!--sub-channel-->
+    <style>
+        .sub-channel {
+            position: relative;
+            width: 1226px;
+            height: auto;
+            margin: 14px auto 26px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .sub-channel .channel-list-container {
+            width: 234px;
+            height: 170px;
+            background: #5f5750
+        }
+
+        .sub-channel .channel-list-container .channel-list {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 3px;
+            font-size: 12px;
+            text-align: center
+        }
+
+        .sub-channel .channel-list-container .channel-list .list-item {
+            width: 76px;
+            height: 82px;
+            padding: 0 3px;
+            position: relative
+        }
+
+        .sub-channel .channel-list-container .channel-list .list-item:before {
+            top: -1px;
+            left: 6px;
+            width: 64px;
+            height: 1px
+        }
+
+        .sub-channel .channel-list-container .channel-list .list-item:after {
+            top: 6px;
+            left: 0;
+            width: 1px;
+            height: 70px
+        }
+
+        .sub-channel .channel-list-container .channel-list .list-item:after,
+        .sub-channel .channel-list-container .channel-list .list-item:before {
+            content: "";
+            position: absolute;
+            background: #665e57
+        }
+
+        .sub-channel .channel-list-container .channel-list .list-item a {
+            display: block;
+            padding-top: 18px;
+            opacity: .7;
+            color: #fff
+        }
+
+        .sub-channel .channel-list-container .channel-list .list-item a img {
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: 0 auto 4px
+        }
+
+        .sub-channel .channel-list-container .channel-list .list-item a:hover {
+            opacity: 1
+        }
+
+        .sub-channel .promo-list-container {
+            margin-left: 14px;
+            width: calc(100% - 248px)
+        }
+
+        .sub-channel .promo-list-container .promo-list {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between
+        }
+
+        .sub-channel .promo-list-container .promo-list .promo-item {
+            height: 170px
+        }
+
+        .sub-channel .promo-list-container .promo-list .promo-item:hover {
+            -webkit-box-shadow: 0 5px 30px #ccc;
+            box-shadow: 0 5px 30px #ccc
+        }
+
+        .sub-channel .promo-list-container .promo-list .promo-item a {
+            display: inline-block;
+            height: 100%
+        }
+
+        .sub-channel .promo-list-container .promo-list .promo-item a img {
+            width: 316px;
+            height: 100%
+        }
+    </style>
+
+    <!--site-footer-->
+    <style>
+        .site-footer {
+            position: relative;
+            width: 1226px;
+            height: auto;
+            margin: 0 auto
+        }
+
+        .site-footer .site-service {
+            padding: 27px 0;
+            border-bottom: 1px solid #e0e0e0
+        }
+
+        .site-footer .site-link,
+        .site-footer .site-service {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .site-footer .site-link {
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            padding: 40px 0
+        }
+
+        .site-footer .site-link .links {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .service-item {
+            width: 19.8%;
+            height: 25px;
+            border-left: 1px solid #e0e0e0;
+            font-size: 16px;
+            line-height: 25px;
+            text-align: center
+        }
+
+        .service-item:first-child {
+            border-left: none
+        }
+
+        .service-item a {
+            color: #616161;
+            -webkit-transition: color .2s;
+            transition: color .2s
+        }
+
+        .service-item a:hover {
+            color: #ff6709
+        }
+
+        .service-item a i {
+            margin-right: 6px;
+            font-size: 24px;
+            line-height: 24px;
+            vertical-align: -4px
+        }
+
+        .service-item a span {
+            font-size: 16px;
+            line-height: 25px
+        }
+
+        .link-container {
+            width: 160px;
+            height: 112px;
+            margin: 0;
+            text-align: left
+        }
+
+        .link-container .link-title {
+            display: block;
+            margin: -1px 0 26px;
+            font-size: 14px;
+            line-height: 1.25;
+            color: #424242
+        }
+
+        .link-container .link-item,
+        .link-container .link-list {
+            margin: 10px 0 0;
+            font-size: 12px
+        }
+
+        .link-container .link-item a,
+        .link-container .link-list a {
+            color: #757575;
+            -webkit-transition: color .2s;
+            transition: color .2s
+        }
+
+        .link-container .link-item a:hover,
+        .link-container .link-list a:hover {
+            color: #ff6709
+        }
+
+        .link-contact {
+            width: 256px;
+            height: 112px;
+            border-left: 1px solid #e0e0e0;
+            text-align: center;
+            color: #616161
+        }
+
+        .link-contact .phone {
+            margin: 0 0 5px;
+            font-size: 22px;
+            line-height: 1;
+            color: #ff6700
+        }
+
+        .link-contact .desc {
+            margin: 0 0 16px;
+            font-size: 12px
+        }
+
+        .link-contact a {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 118px;
+            height: 28px;
+            font-size: 12px;
+            line-height: 28px;
+            border: 1px solid #ff6700;
+            background: #fff;
+            color: #ff6700;
+            -webkit-transition: all .4s;
+            transition: all .4s
+        }
+
+        .link-contact a:hover {
+            color: #fff;
+            background-color: #f25807;
+            border-color: #f25807
+        }
+    </style>
+
+    <!--tool-bar-->
+    <style>
+        .tool-bar {
+            position: fixed;
+            height: 266px;
+            left: 50%;
+            right: auto;
+            margin-left: 613px;
+            bottom: 40px;
+            z-index: 99
+        }
+
+        .tool-bar a {
+            display: block;
+            position: relative;
+            width: 27px;
+            height: 42px;
+            background-color: #fff;
+            border: 1px solid #f5f5f5;
+            text-align: center
+        }
+
+        .tool-bar a:last-child {
+            margin-top: 14px
+        }
+
+        .tool-icon {
+            width: 20px;
+            height: 20px;
+            padding-top: 10px;
+            margin: 0 auto 8px
+        }
+
+        .tool-icon img {
+            width: 20px;
+            height: 20px;
+            opacity: 1;
+            -webkit-transition: opacity .3s;
+            transition: opacity .3s
+        }
+
+        .tool-qrcode {
+            position: absolute;
+            text-align: center;
+            left: 0;
+            top: 0;
+            padding: 14px;
+            background: #fff;
+            border: 1px solid #f5f5f5;
+            -webkit-transition: opacity .3s;
+            transition: opacity .3s;
+            -webkit-transform: translate3d(-110%, 0, 0);
+            transform: translate3d(-110%, 0, 0);
+            opacity: 1
+        }
+
+        .tool-qrcode img {
+            display: block;
+            width: 100px;
+            height: 100px;
+            margin: 6px auto
+        }
+
+        .tool-qrcode span {
+            display: block;
+            width: 82px;
+            margin: 14px auto 0;
+            font-size: 14px;
+            color: #757575;
+            text-align: center
+        }
+
+        .tool-qrcode:after {
+            right: -12px;
+            border-color: transparent transparent transparent #fff;
+            z-index: 2;
+            top: 10px;
+            border-width: 6px
+        }
+
+        .tool-qrcode:before {
+            right: -13px;
+            border-color: transparent transparent transparent #f5f5f5;
+            z-index: 1;
+            top: 10px;
+            border-width: 6px
+        }
+
+        .tool-tip:after,
+        .tool-tip:before {
+            top: 50%;
+            margin-top: -6px;
+            border-width: 6px
+        }
+
+        .tool-qrcode:after,
+        .tool-qrcode:before,
+        .tool-tip:after,
+        .tool-tip:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            overflow: hidden
+        }
+
+        .tool-tip {
+            display: block;
+            position: absolute;
+            -webkit-transform: translate3d(-115%, -50%, 0);
+            transform: translate3d(-115%, -50%, 0);
+            color: #757575;
+            left: 0;
+            top: 50%;
+            height: 28px;
+            line-height: 28px;
+            padding: 0 8px;
+            background-color: #fff;
+            border: 1px solid #f5f5f5;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-transition: color .3s;
+            transition: color .3s
+        }
+
+        .tool-tip:after {
+            border-color: transparent transparent transparent #fff;
+            right: -12px;
+            z-index: 2
+        }
+
+        .tool-tip:before {
+            border-color: transparent transparent transparent #f5f5f5;
+            right: -13px;
+            z-index: 1
+        }
+    </style>
+
+    <!--gray-page-->
+    <style>
+        .index-page .gray-page {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            background-color: #f5f5f5
+        }
+
+        .goods-sale {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            width: 1226px;
+            height: auto;
+            margin: 0 auto
+        }
+
+        .box-header {
+            text-align: start;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .box-header .box-title {
+            display: inline-block;
+            font-size: 22px;
+            font-weight: 200;
+            line-height: 58px;
+            color: #333
+        }
+
+        .box-header .type-select {
+            display: inline-block
+        }
+
+        .box-header .type-select .tab-list {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .box-header .type-select .tab-list .tab-item {
+            display: inline-block;
+            margin-left: 30px;
+            color: #424242;
+            border-bottom: 2px solid transparent;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+            cursor: pointer
+        }
+
+        .box-header .type-select .tab-list .active {
+            border-bottom: 2px solid #ff6709;
+            color: #ff6709
+        }
+
+        .box-header .type-more {
+            display: inline-block
+        }
+
+        .box-header .type-more a {
+            font-size: 16px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .box-header .type-more a span {
+            color: #424242;
+            -webkit-transition: all .4s;
+            transition: all .4s
+        }
+
+        .box-header .type-more a i {
+            width: 20px;
+            height: 20px;
+            margin-left: 8px;
+            border-radius: 16px;
+            font-size: 15px;
+            line-height: 20px;
+            background: #b0b0b0;
+            color: #fff;
+            text-align: center;
+            vertical-align: 2px;
+            -webkit-transition: all .4s;
+            transition: all .4s
+        }
+
+        .box-header .type-more a:hover span {
+            color: #ff6709
+        }
+
+        .box-header .type-more a:hover i {
+            background: #ff6709
+        }
+
+        .box-content {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .box-content .promo-content .promo-one a {
+            display: block;
+            height: 614px
+        }
+
+        .box-content .promo-content .promo-one a img {
+            height: 100%;
+            width: 234px
+        }
+
+        .box-content .promo-two a {
+            display: block;
+            height: 300px
+        }
+
+        .box-content .promo-two a img {
+            width: 234px;
+            height: 100%
+        }
+
+        .box-content .promo-two a:first-child {
+            margin-bottom: 14px
+        }
+
+        .box-content .goods-content .goods-one,
+        .box-content .goods-content .goods-two {
+            width: 992px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap
+        }
+
+        .box-content .goods-content .goods-one .goods-item,
+        .box-content .goods-content .goods-two .goods-item {
+            background: #fff;
+            height: 300px;
+            padding: 20px 0;
+            width: 234px;
+            margin-left: 14px;
+            margin-bottom: 14px
+        }
+
+        .box-content .goods-two .goods-item-sm {
+            height: 300px;
+            width: 234px;
+            margin-left: 14px
+        }
+
+        .box-content .goods-two .goods-item-sm a {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            height: 143px;
+            background: #fff;
+            padding: 30px 20px 30px 30px;
+            margin-bottom: 14px
+        }
+
+        .box-content .goods-two .goods-item-sm a img {
+            width: 80px;
+            height: 80px;
+            margin: 0
+        }
+
+        .box-content .goods-two .goods-item-bg {
+            height: 300px;
+            width: 496px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .box-content .goods-two .goods-item-bg a {
+            display: block;
+            width: 234px;
+            background: #fff;
+            margin-left: 14px;
+            padding: 20px 0
+        }
+
+        .box-content .goods-two .goods-item-bg .brick-more {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            height: 143px;
+            padding: 30px 20px 30px 30px
+        }
+
+        .box-content .goods-two .goods-item-bg .brick-more img {
+            width: 80px;
+            height: 80px;
+            margin: 0
+        }
+
+        .box-content .goods-content a {
+            display: block
+        }
+
+        .box-content .goods-content a img {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 18px
+        }
+
+        .box-content .goods-content a .name {
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            margin: 0 10px 2px
+        }
+
+        .box-content .goods-content a .desc {
+            display: block;
+            margin: 0 10px 10px;
+            height: 18px;
+            font-size: 12px;
+            color: #b0b0b0
+        }
+
+        .box-content .goods-content a .price {
+            margin: 0 10px 14px;
+            font-size: 14px;
+            color: #ff6700
+        }
+
+        .box-content .goods-content a .price del {
+            color: #b0b0b0;
+            margin-left: 8px
+        }
+    </style>
+
+    <style>
+        /* 下拉菜单设置样式 */
+        .nav-cart-dropdown-content {
+            /* 隐藏菜单 */
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            /* 设置链接元素的最小宽度 */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(12, 12, 12, 0.2);
+            overflow: auto;
+        }
+
+        .nav-cart-dropdown-content a {
+            display: block;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+
+        .nav-cart-dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .nav-cart:hover .nav-cart-dropdown-content {
+            display: block;
+            position: relative;
+            z-index: 9999;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="index-page">
+
+            <!--header-->
+
+            <header class="top-bar">
+                <div class="bar-container">
+                    <div class="nav-container">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="">####</a></div>
+                                <span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="">####</a></div>
+                                <span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="">####</a>
+                                </div><span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="">####</a></div><span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="">####</a>
+                                </div><span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="">####</a></div>
+                                <span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="">####</a>
+                                </div><span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+
+                                <div class="item-style"><a href="">####</a></div>
+                                <span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="">####</a></div>
+                                <span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="">####</a></div>
+                                <span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <div class="item-style">
+                                    <!--####################-->
+                                    <a href="">####</a>
+                                    <span class="triangle" style="display: none;"></span>
+                                    <div class="app-qrcode-container">
+                                        <div class="app-qrcode" style="display: none;">
+                                            <!--####################-->
+                                            <img src="" alt="####"><span>####</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <div class="item-style"><a href="./dist/index.html"  target="_blank">商家后台</a></div>
+                                <span class="nav-span" style="display: none;">|</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--登陆注册-->
+
+                    <div class="nav-login">
+                        <ul class="nav-login-item">
+                            <li class="nav-item">
+                                <!--####################-->
+                                <a href="./login/login.html" target="_blank">登录</a>
+                                <span class="nav-span">|</span>
+                            </li>
+                            <li class="nav-item">
+                                <!--####################-->
+                                <a href="./login/login.html" target="_blank">注册</a>
+                                <span class="nav-span">|</span>
+                            </li>
+                            <!--####################-->
+                            <li class="nav-item">
+                                <a href="" style="margin-left: 5px;">####</a>
+                                <span class="nav-span" style="display: none;">|</span>
+                            </li>
+                        </ul>
+                        <div class="nav-cart fa">
+                            <div class="nav-cart-container">
+                                <i class="fa fa-shopping-cart icon-cart"></i>
+                                <!--####################-->
+                                <a href="">购物车(<span>0</span>)</a>
+                            </div>
+                            <div class="nav-cart-dropdown-content">
+                                <!-- <a href="#">###-###-##############</a>
+                                <a href="#">###-###-##############</a>
+                                <a href="#">###-###-##############</a> -->
+                                请<a href="./login/login.html" target="_blank" style="display: inline-block;margin:0;padding:0 6px 0 6px;text-decoration:underline;color: #0080ff;">登录</a>后查看
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!--top-header-->
+
+            <div class="top-header">
+                <div class="top-container">
+                    <a href="">
+                        <img class="logo" src="./ (26).jpg" alt="####">
+                    </a>
+                    <div class="header-navs-container">
+                        <!--登录之后显示头像以及下拉菜单-->
+                        <div class="divider" style="background: none;"></div>
+                        <ul class="navs">
+                            <!--####################-->
+                            <li class="navs-item"><a href="">####</a></li>
+                            <li class="navs-item"><a href="">####</a></li>
+                            <li class="navs-item"><a href="">####</a></li>
+                            <li class="navs-item"><a href="">####</a></li>
+                            <li class="navs-item"><a href="">####</a></li>
+                            <li class="navs-item"><a href="">####</a></li>
+                            <li class="navs-item"><a href="">####</a></li>
+                            <li class="navs-item"><a href="">####</a></li>
+                            <li class="navs-item"><a href="">####</a></li>
+                        </ul>
+                    </div>
+                    <div class="header-search-container">
+                        <input type="search" value="" class="search-input">
+                        <label class="search-btn" style="border-left: 0px;">
+                            <a href="">
+                                <i aria-hidden="true" class="fa fa-search">搜索</i>
+                            </a>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!--menu-banner-->
+
+            <div class="menu-banner">
+                <div class="menu-container">
+                    <!--####################-->
+                    <ul class="menu-list">
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="list-item">
+                            <a href="">####</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="banner">
+                    <div class="banner-prev"></div>
+                    <div class="banner-next"></div>
+                    <ul class="banner-container">
+                        <li class="image-container">
+                            <a href="">
+                                <img src="./imgs/(26).jpg">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--gray-page1-->
+            <div class="gray-page">
+                <div class="goods-sale">
+                    <div class="good-box">
+                        <div class="box-header">
+                            <h2 class="box-title">####</h2>
+                            <div class="type-more">
+                                <a href="">
+                                    <span>####</span>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="box-content">
+                            <div class="promo-content">
+                                <div class="promo-one">
+                                    <a href="" class="brick-item">
+                                        <img src="./imgs/(26).jpg">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="goods-content">
+                                <div class="goods-one">
+                                    <div class="goods-item brick-item">
+                                        <a href="">
+                                            <img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href="">
+                                            <img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--gray-page2-->
+            <div class="gray-page">
+                <div class="goods-sale">
+                    <div class="good-box">
+                        <div class="box-header">
+                            <h2 class="box-title">####</h2>
+                            <div class="type-more">
+                                <a href="">
+                                    <span>####</span>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="box-content">
+                            <div class="promo-content">
+                                <div class="promo-one">
+                                    <a href="" class="brick-item">
+                                        <img src="./imgs/(26).jpg">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="goods-content">
+                                <div class="goods-one">
+                                    <div class="goods-item brick-item">
+                                        <a href="">
+                                            <img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href="">
+                                            <img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="goods-item brick-item">
+                                        <a href=""><img src="./imgs/(26).jpg" alt="####">
+                                            <h3 class="name ellipsis">####</h3>
+                                            <span class="desc ellipsis">####</span>
+                                            <div class="price">
+                                                <span>####</span>
+                                                <span>####</span>
+                                                <del>####</del>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--sub-channel-->
+
+            <div class="sub-channel">
+                <div class="channel-list-container">
+                    <!--####################-->
+                    <ul class="channel-list">
+                        <li class="list-item">
+                            <a href="">
+                                <img src="" alt="####">
+                                <span>####</span>
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="">
+                                <img src="" alt="####">
+                                <span>####</span>
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="">
+                                <img src="" alt="####">
+                                <span>####</span>
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="">
+                                <img src="" alt="####">
+                                <span>####</span>
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="">
+                                <img src="" alt="####">
+                                <span>####</span>
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="">
+                                <img src="" alt="####">
+                                <span>####</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="promo-list-container">
+                    <!--####################-->
+                    <ul class="promo-list">
+                        <li class="promo-item">
+                            <a href=""><img src="./imgs/(26).jpg" alt="####"></a>
+                        </li>
+                        <li class="promo-item">
+                            <a href=""><img src="./imgs/(26).jpg" alt="####"></a>
+                        </li>
+                        <li class="promo-item">
+                            <a href=""><img src="./imgs/(26).jpg" alt="####"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--site-footer-->
+
+            <div class="site-footer">
+                <ul class="site-service">
+                    <li class="service-item">
+                        <a href="">
+                            <i class="iconfont icon-buoumaotubiao46"></i>
+                            <span>####</span>
+                        </a>
+                    </li>
+                    <li class="service-item">
+                        <a href="">
+                            <i class="iconfont icon-7tianwuliyoutuihuo"></i>
+                            <span>####</span>
+                        </a>
+                    </li>
+                    <li class="service-item">
+                        <a href="">
+                            <i class="iconfont icon-15tianwuliyoutuihuo"></i>
+                            <span>####</span>
+                        </a>
+                    </li>
+                    <li class="service-item">
+                        <a href="">
+                            <i class="iconfont icon-liwu"></i>
+                            <span>####</span>
+                        </a>
+                    </li>
+                    <li class="service-item">
+                        <a href="">
+                            <i class="iconfont icon-icon-test"></i>
+                            <span>####</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="site-link">
+                    <div class="links">
+                        <div class="link-container"><span class="link-title">####</span>
+                            <ul class="link-list">
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="link-container">
+                            <span class="link-title">####</span>
+                            <ul class="link-list">
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="link-container"><span class="link-title">####</span>
+                            <ul class="link-list">
+                                <li class="link-item">
+                                    <a href=""> ####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="link-container"><span class="link-title">####</span>
+                            <ul class="link-list">
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">#### </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="link-container"><span class="link-title">####</span>
+                            <ul class="link-list">
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="link-container"><span class="link-title">####</span>
+                            <ul class="link-list">
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                                <li class="link-item">
+                                    <a href="">####</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="link-contact">
+                        <p class="phone">###-###-####</p>
+                        <p class="desc">###-###-####</p><a href=""><i
+                                class="iconfont icon-icon-test1"></i><span>####</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!--tool-bar-->
+
+            <div class="tool-bar">
+                <a href="#">
+                    <div class="tool-icon">
+                        <img src="https://i8.mifile.cn/b2c-mimall-media/98a23aae70f25798192693f21c4d4039.png" style="">
+                        <img src="" style="display: none;">
+                    </div>
+                    <div class="tool-qrcode" style="display: none;">
+                        <img src="">
+                        <span>手机扫一扫一分赢好礼</span>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="tool-icon">
+                        <img src="https://i8.mifile.cn/b2c-mimall-media/55cad219421bee03a801775e7309b920.png">
+                        <img src="" style="display: none;">
+                    </div>
+                    <span class="tool-tip" style="display: none;">个人中心</span>
+                </a>
+                <a href="">
+                    <div class="tool-icon">
+                        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/12eb0965ab33dc8e05870911b90f3f13.png"
+                            style="">
+                        <img src="" style="display: none;">
+                    </div>
+                    <span class="tool-tip" style="display: none;">售后服务</span>
+                </a>
+                <a href="">
+                    <div class="tool-icon">
+                        <img src="https://i8.mifile.cn/b2c-mimall-media/4f036ae4d45002b2a6fb6756cedebf02.png">
+                        <img src="" style="display: none;">
+                    </div>
+                    <span class="tool-tip" style="display: none;">人工客服</span>
+                </a>
+                <a href="">
+                    <div class="tool-icon">
+                        <img src="https://i8.mifile.cn/b2c-mimall-media/d7db56d1d850113f016c95e289e36efa.png">
+                        <img src="" style="display: none;">
+                    </div>
+                    <span class="tool-tip" style="display: none;">购物车(0)</span>
+                </a>
+                <a href="#">
+                    <div class="tool-icon">
+                        <img src="https://i1.mifile.cn/f/i/2018/home/totop.png">
+                        <img src="" style="display: none;">
+                    </div>
+                    <span class="tool-tip" style="display: none;">回顶部</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
